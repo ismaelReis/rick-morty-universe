@@ -1,0 +1,31 @@
+import Image from 'next/image';
+import styles from '../../styles/Card.module.css'
+import { ILocation } from '../interfaces';
+
+type myProps = {
+    location: ILocation
+}
+
+
+export default function Card({ location }: myProps) {
+    return (
+        <div className={styles.card}>
+            <Image
+                src={"https://random.imagecdn.app/150/150?local=" + location.id}
+                alt="Portal"
+                width={150}
+                height={150}
+                priority
+                style={{ width: "100%" }}
+            />
+            <div className={styles.container}>
+                <h4><b>{location.name}</b></h4>
+                <hr />
+                <small>Type</small>
+                <p>{location.type}</p>
+                <small>Dimension</small>
+                <p>{location.dimension}</p>
+            </div>
+        </div>
+    )
+}
