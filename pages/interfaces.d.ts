@@ -7,3 +7,9 @@ export interface ILocation {
     url: string,
     created: string    
 }
+export interface ICharacter {
+    id: number,
+    name: string,
+    species: string,
+    image: string,
+}

@@ -7,7 +7,7 @@ type myProps = {
 }
 
 
-export default function Card({ location }: myProps) {
+export default function CardLocation({ location }: myProps) {
     return (
         <div className={styles.card}>
             <Image
