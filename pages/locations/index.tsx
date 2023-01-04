@@ -1,5 +1,5 @@
 import CardLocation from '../components/cardLocation';
-import styles from '../../styles/Locations.module.css'
+import styles from '../../styles/Card.module.css'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ILocation } from '../interfaces';
