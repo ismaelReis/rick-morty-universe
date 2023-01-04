@@ -20,11 +20,6 @@ export default function Locations() {
 
     return (
         <>
-            <div style={{ display: "flex", flexDirection: "row" }}>
-                <div>Anterior</div>
-                <div style={{ flex: 1 }}></div>
-                <div>Avançar</div>
-            </div>
             <div className={styles.cards}>
                 {
                 locations.length <= 0 ? "No locations found": 
