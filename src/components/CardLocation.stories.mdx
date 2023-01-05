@@ -1,0 +1,21 @@
+import { Meta, Story, Preview ,ArgsTable} from '@storybook/addon-docs';
+import CardLocation from './CardLocation';
+
+
+<Meta title="components/CardLocation" component={CardLocation} />
+
+# CardLocation
+Shows a location card.
+
+<ArgsTable of={CardLocation} />
+
+<Canvas>
+  <Story
+    name="CardLocation"
+    args={{ ...CardLocation.defaultProps}}
+  >
+    {(args) => <CardLocation {...args} />}
+  </Story>
+</Canvas>
+
+

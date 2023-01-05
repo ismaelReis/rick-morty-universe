@@ -1,6 +1,18 @@
 import Image from 'next/image';
 import styles from '../../styles/Card.module.css'
-import { ILocation } from '../../../pages/interfaces';
+import { ILocation } from '../../pages/interfaces';
+
+CardLocation.defaultProps = {
+    location: {
+        id: 0,
+        name: "No name",
+        type: "No type",
+        dimension: "No dimension",
+        residents: [],
+        url: "No url",
+        created: "No created"
+    }      
+}
 
 type myProps = {
     location: ILocation
@@ -29,3 +41,4 @@ export default function CardLocation({ location }: myProps) {
         </div>
     )
 }
+
