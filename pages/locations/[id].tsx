@@ -27,7 +27,19 @@ const getResidentes = async (residents: string[]) => {
     return residentsArray;
 }
 
-export const getServerSideProps = async (params: params) => {
+export const getStaticPaths = async () => {      
+    return {
+        paths: [{
+            params: {
+                id: "5"
+            }
+        }],
+        fallback: false
+    }
+}
+
+
+export const getStaticProps = async (params: params) => {
     const id = params.params.id;
     const location = await getLocation(parseInt(id));
     const residents = await getResidentes(location.residents);
@@ -37,6 +49,7 @@ export const getServerSideProps = async (params: params) => {
             location,
             residents
         }
+        
     }
 }
 
