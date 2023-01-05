@@ -1,0 +1,21 @@
+import { Meta, Story, Preview ,ArgsTable} from '@storybook/addon-docs';
+import CardCharacter from './CardCharacter';
+
+
+<Meta title="components/CardCharacter" component={CardCharacter} />
+
+# CardCharacter
+Shows a character card.
+
+<ArgsTable of={CardCharacter} />
+
+<Canvas>
+  <Story
+    name="CardCharacter"
+    args={{ ...CardCharacter.defaultProps}}
+  >
+    {(args) => <CardCharacter {...args} />}
+  </Story>
+</Canvas>
+
+

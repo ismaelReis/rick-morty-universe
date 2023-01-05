@@ -5,6 +5,16 @@ import { ICharacter, ILocation } from '../../pages/interfaces';
 type myProps = {
     character: ICharacter
 }
+CardCharacter.defaultProps = {
+    character: {
+        id: 0,
+        name: "No name",
+        status: "No status",
+        species: "No species",
+        type: "No type",
+        image:"https://random.imagecdn.app/150/150?local=2"
+    }
+}
 
 
 export default function CardCharacter({ character }: myProps) {
