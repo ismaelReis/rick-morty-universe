@@ -43,7 +43,6 @@ export const getStaticProps = async (params: params) => {
     const id = params.params.id;
     const location = await getLocation(parseInt(id));
     const residents = await getResidentes(location.residents);
-    const tot = residents.length;
     //get random items from residents
     const randomResidents = residents.sort(() => Math.random() - 0.5).slice(0, (residents.length > 5 ? 5 : residents.length));
 
