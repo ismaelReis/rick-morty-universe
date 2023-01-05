@@ -1,6 +1,7 @@
 
 import { ICharacter, ILocation } from "../interfaces";
-import Image from 'next/image'
+import Image from 'next/image';
+
 type params = {
     params: props
 }

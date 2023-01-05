@@ -3,14 +3,17 @@ import styles from '../../styles/Card.module.css'
 import CardCharacter from "../../components/cardCharacter";
 import { ICharacter, ILocation } from "../interfaces";
 
-type params = {
-    params: props
-}
+
 type props = {
     id: string,
     location: ILocation,
     residents: ICharacter[]
 }
+
+type params = {
+    params: props
+}
+
 const getLocation = async (id: number) => {
     const res = await fetch('https://rickandmortyapi.com/api/location/' + id);
     const data: ILocation = await res.json();
@@ -37,7 +40,6 @@ export const getStaticPaths = async () => {
         fallback: "blocking",
     }
 }
-
 
 export const getStaticProps = async (params: params) => {
     const id = params.params.id;
