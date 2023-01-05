@@ -14,7 +14,18 @@ const getCharacter = async (id: number) => {
     return data;
 }
 
-export const getServerSideProps = async (params: params) => {
+export const getStaticPaths = async () => {
+    return {
+        paths: [{
+            params: {
+                id: "38"
+            }
+        }],
+        fallback: "blocking"
+    }
+}
+
+export const getStaticProps = async (params: params) => {
     const id = params.params.id;
     const character = await getCharacter(parseInt(id));
     return {
