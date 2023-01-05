@@ -1,4 +1,4 @@
-import CardLocation from '../components/cardLocation';
+import CardLocation from '../../components/cardLocation';
 import styles from '../../styles/Card.module.css'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -24,8 +24,8 @@ export default function Locations() {
                 {
                 locations.length <= 0 ? "No locations found": 
                 locations.map((location:ILocation, i) => (
-                    <Link href={"locations/"+location.id}  style={{ textDecoration: 'none' }}>
-                    <CardLocation key={i} location={location} />
+                    <Link key={i}  href={"locations/"+location.id}  style={{ textDecoration: 'none' }}>
+                    <CardLocation location={location} />
                     </Link>
                 ))}
             </div>

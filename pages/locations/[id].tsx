@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from '../../styles/Card.module.css'
-import CardCharacter from "../components/cardCharacter";
+import CardCharacter from "../../components/cardCharacter";
 import { ICharacter, ILocation } from "../interfaces";
 
 type params = {
@@ -56,8 +56,8 @@ export default function Location({ id, location, residents }: props) {
                 {
                     residents.length <= 0 ? "No residents found" :
                         residents.map((resident, i) => (
-                            <Link href={"/character/" + resident.id} style={{ textDecoration: 'none' }}>
-                                <CardCharacter key={i} character={resident} />
+                            <Link key={i} href={"/character/" + resident.id} style={{ textDecoration: 'none' }}>
+                                <CardCharacter character={resident} />
                             </Link>
                         ))
                 }
