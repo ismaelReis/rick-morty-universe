@@ -1,6 +1,5 @@
 import CardLocation from '../../components/cardLocation';
 import styles from '../../styles/Card.module.css'
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ILocation } from '../interfaces';
 
@@ -14,7 +13,7 @@ const getLocations = async () => {
 export const getStaticProps = async () => {
     const locations = await getLocations();
     return {
-        props: { locations }, // will be passed to the page component as props
+        props: { locations },
     }
 }
 
@@ -29,7 +28,7 @@ export default function Locations({ locations }: props) {
                 {
                     locations.length <= 0 ? "No locations found" :
                         locations.map((location: ILocation, i) => (
-                            <Link key={i} href={"locations/" + location.id} style={{ textDecoration: 'none' }}>
+                            <Link key={i} href={"locations/" + location.id}>
                                 <CardLocation location={location} />
                             </Link>
                         ))}
