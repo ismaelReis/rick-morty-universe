@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import styles from '../styles/Card.module.css'
-import { ILocation } from '../pages/interfaces';
+import styles from '../../styles/Card.module.css'
+import { ILocation } from '../../../pages/interfaces';
 
 type myProps = {
     location: ILocation

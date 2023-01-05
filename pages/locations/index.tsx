@@ -1,4 +1,4 @@
-import CardLocation from '../../components/cardLocation';
+import CardLocation from '../../src/components/cardLocation';
 import styles from '../../styles/Card.module.css'
 import Link from 'next/link';
 import { ILocation } from '../interfaces';

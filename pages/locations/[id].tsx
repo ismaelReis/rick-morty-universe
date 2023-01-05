@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from '../../styles/Card.module.css'
-import CardCharacter from "../../components/cardCharacter";
+import CardCharacter from "../../src/components/cardCharacter";
 import { ICharacter, ILocation } from "../interfaces";
 
 
