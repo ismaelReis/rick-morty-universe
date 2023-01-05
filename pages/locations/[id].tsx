@@ -27,14 +27,14 @@ const getResidentes = async (residents: string[]) => {
     return residentsArray;
 }
 
-export const getStaticPaths = async () => {      
+export const getStaticPaths = async () => {
     return {
         paths: [{
             params: {
                 id: "5"
             }
         }],
-        fallback: "blocking"
+        fallback: "blocking",
     }
 }
 
@@ -43,13 +43,18 @@ export const getStaticProps = async (params: params) => {
     const id = params.params.id;
     const location = await getLocation(parseInt(id));
     const residents = await getResidentes(location.residents);
+    const tot = residents.length;
+    //get random items from residents
+    const randomResidents = residents.sort(() => Math.random() - 0.5).slice(0, (residents.length > 5 ? 5 : residents.length));
+
     return {
         props: {
             id,
             location,
-            residents
-        }
-        
+            residents: randomResidents
+        },
+        revalidate: 60
+
     }
 }
 
