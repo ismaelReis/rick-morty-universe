@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import  {reduceResidents}  from '../../../pages/locations/[id]';
+import  locationController  from '../../../pages/locations/Location';
 import { ICharacter } from '../../../src/interfaces';
 
 test('should reduce the number of items in array to 5', () => {
@@ -19,6 +19,6 @@ test('should reduce the number of items in array to 5', () => {
         { id: 9, name: 'Character 9', species: 'Species 9', image: 'image9.jpg' },
         { id: 10, name: 'Character 10', species: 'Species 10', image: 'image10.jpg' },
     ];
-    const result = reduceResidents(array);
+    const result = locationController.reduceResidents(array);
     expect(result.length).toBe(5);
 })

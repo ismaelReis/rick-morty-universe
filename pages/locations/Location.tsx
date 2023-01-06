@@ -1,19 +1,19 @@
 import { ICharacter, ILocation } from "../../src/interfaces";
 
-export const getLocations = async () => {
+ const getLocations = async () => {
     const res = await fetch('https://rickandmortyapi.com/api/location');
     const data = await res.json();
     return data.results;
 }
 
-export const getLocation = async (id: number) => {
+ const getLocation = async (id: number) => {
     const res = await fetch('https://rickandmortyapi.com/api/location/' + id);
     const data: ILocation = await res.json();
     return data;
 }
 
 
-export const getResidentes = async (residents: string[]) => {
+ const getResidentes = async (residents: string[]) => {
 
     var residentsArray = await Promise.all(residents.map(async residentUrl => {
         const res = await fetch(residentUrl);
@@ -23,4 +23,11 @@ export const getResidentes = async (residents: string[]) => {
 
     return residentsArray;
 }
+
+ const reduceResidents = (residents: ICharacter[]) => {
+    const randomResidents = residents.sort(() => Math.random() - 0.5).slice(0, (residents.length > 5 ? 5 : residents.length));
+    return randomResidents;
+}
+
+export default {getLocations, getLocation, getResidentes, reduceResidents}
 

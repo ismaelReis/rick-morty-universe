@@ -2,7 +2,8 @@ import Link from "next/link";
 import styles from '../../styles/Card.module.css'
 import CardCharacter from "../../src/components/CardCharacter";
 import { ICharacter, ILocation } from "../../src/interfaces";
-import { getLocation, getResidentes } from "./Location";
+import  locationController from "./Location";
+
 
 type props = {
     id: string,
@@ -28,10 +29,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (params: params) => {
     const id = params.params.id;
-    const location = await getLocation(parseInt(id));
-    const residents = await getResidentes(location.residents);
+    const location = await locationController.getLocation(parseInt(id));
+    const residents = await locationController.getResidentes(location.residents);
     //get random items from residents
-    const randomResidents = reduceResidents(residents);
+    const randomResidents = locationController.reduceResidents(residents);
 
     return {
         props: {
@@ -42,11 +43,6 @@ export const getStaticProps = async (params: params) => {
         revalidate: 60
 
     }
-}
-
-export const reduceResidents = (residents: ICharacter[]) => {
-    const randomResidents = residents.sort(() => Math.random() - 0.5).slice(0, (residents.length > 5 ? 5 : residents.length));
-    return randomResidents;
 }
 
 

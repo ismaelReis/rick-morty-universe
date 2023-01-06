@@ -2,14 +2,14 @@ import CardLocation from '../../src/components/CardLocation';
 import styles from '../../styles/Card.module.css'
 import Link from 'next/link';
 import { ILocation } from '../../src/interfaces';
-import { getLocations } from './Location';
+import locationController from './Location';
 
 type props = {
     locations: ILocation[]
 }
 
 export const getStaticProps = async () => {
-    const locations = await getLocations();
+    const locations = await locationController.getLocations();
     return {
         props: { locations },
     }
