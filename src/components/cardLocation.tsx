@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '../../styles/Card.module.css'
-import { ILocation } from '../../pages/interfaces';
+import { ILocation } from '../interfaces';
 
 CardLocation.defaultProps = {
     location: {

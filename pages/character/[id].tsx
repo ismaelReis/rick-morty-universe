@@ -1,5 +1,5 @@
 
-import { ICharacter, ILocation } from "../interfaces";
+import { ICharacter, ILocation } from "../../src/interfaces";
 import Image from 'next/image';
 
 type params = {

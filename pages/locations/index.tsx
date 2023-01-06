@@ -1,19 +1,12 @@
 import CardLocation from '../../src/components/CardLocation';
 import styles from '../../styles/Card.module.css'
 import Link from 'next/link';
-import { ILocation } from '../interfaces';
-
+import { ILocation } from '../../src/interfaces';
+import { getLocations } from './Location';
 
 type props = {
     locations: ILocation[]
 }
-
-const getLocations = async () => {
-    const res = await fetch('https://rickandmortyapi.com/api/location');
-    const data = await res.json();
-    return data.results;
-}
-
 
 export const getStaticProps = async () => {
     const locations = await getLocations();

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import styles from '../../styles/Card.module.css'
 import CardCharacter from "../../src/components/CardCharacter";
-import { ICharacter, ILocation } from "../interfaces";
-
+import { ICharacter, ILocation } from "../../src/interfaces";
+import { getLocation, getResidentes } from "./Location";
 
 type props = {
     id: string,
@@ -14,21 +14,6 @@ type params = {
     params: props
 }
 
-const getLocation = async (id: number) => {
-    const res = await fetch('https://rickandmortyapi.com/api/location/' + id);
-    const data: ILocation = await res.json();
-    return data;
-}
-const getResidentes = async (residents: string[]) => {
-
-    var residentsArray = await Promise.all(residents.map(async residentUrl => {
-        const res = await fetch(residentUrl);
-        var data: ICharacter = await res.json();
-        return data;
-    }));
-
-    return residentsArray;
-}
 
 export const getStaticPaths = async () => {
     return {

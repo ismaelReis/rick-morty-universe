@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '../../styles/Card.module.css'
-import { ICharacter, ILocation } from '../../pages/interfaces';
+import { ICharacter, ILocation } from '../interfaces';
 
 type myProps = {
     character: ICharacter
