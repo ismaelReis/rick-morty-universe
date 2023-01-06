@@ -3,10 +3,6 @@ import  locationController  from '../../../pages/locations/Location';
 import { ICharacter } from '../../../src/interfaces';
 
 test('should reduce the number of items in array to 5', () => {
-    //create an array of 10 ICharacter items
-
-
-    //   const items:ICharacter[] = [{id: 1, name: '', species: '', image: ''}];
     let array: ICharacter[] = [
         { id: 1, name: 'Character 1', species: 'Species 1', image: 'image1.jpg' },
         { id: 2, name: 'Character 2', species: 'Species 2', image: 'image2.jpg' },
@@ -21,4 +17,14 @@ test('should reduce the number of items in array to 5', () => {
     ];
     const result = locationController.reduceResidents(array);
     expect(result.length).toBe(5);
+})
+
+test('should not change arrays with less then 5 items', () => {
+    let array: ICharacter[] = [
+        { id: 1, name: 'Character 1', species: 'Species 1', image: 'image1.jpg' },
+        { id: 2, name: 'Character 2', species: 'Species 2', image: 'image2.jpg' },
+       
+    ];
+    const result = locationController.reduceResidents(array);
+    expect(result.length).toBe(array.length);
 })
